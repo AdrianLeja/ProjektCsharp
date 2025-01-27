@@ -1,0 +1,66 @@
+﻿@model IEnumerable<ProjektC.Models.Adopcja>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Adopcje</h1>
+
+<p>
+    <a asp-action="Create" class="button-link">Dodaj adopcję</a>
+
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Status adopcji
+            </th>
+            <th>
+                Data rozpoczęcia
+            </th>
+            <th>
+                Data zakończenia
+            </th>
+            <th>
+                Id Pracownika
+            </th>
+            <th>
+                Id Właściciela
+            </th>
+            <th>
+                Id Zwierzęcia
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.StatusAdopcji)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DataRozpoczeciaAdopcji)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DataZakonczeniaAdopcji)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdPracownikaNavigation.IdPracownika)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdUzytkownikaNavigation.IdUzytkownika)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdZwierzeciaNavigation.IdZwierzecia)
+            </td>
+            <td>
+                    <a asp-action="Edit" asp-route-id="@item.IdAdopcji" class="button-link">Edytuj</a> 
+                    <a asp-action="Details" asp-route-id="@item.IdAdopcji" class="button-link">Szczegóły</a> 
+                    <a asp-action="Delete" asp-route-id="@item.IdAdopcji" class="button-link">Usuń</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

@@ -1,0 +1,59 @@
+﻿@model ProjektC.Models.Zwierze
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1>Usuń zwierze</h1>
+
+<h3>Czy jesteś pewien?</h3>
+<div>
+    <h4>Zwierze</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Gatunek)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Gatunek)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Imie)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Imie)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Rasa)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Rasa)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Wiek)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Wiek)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Waga)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Waga)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.IdLokacjiNavigation)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.IdLokacjiNavigation.IdLokacji)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete" class="button-link">
+        <input type="hidden" asp-for="IdZwierzecia" />
+        <h5></h5>
+        <input type="submit" value="Usuń" class="btn btn-danger" /> 
+        <h5></h5>
+        <a asp-action="Index" class="button-link">Powrót</a>
+    </form>
+</div>

@@ -1,0 +1,35 @@
+﻿@model ProjektC.Models.Pracownik
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1>Usuń pracownika</h1>
+
+<h3>Czy jesteś pewien?</h3>
+<div>
+    
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Imie)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Imie)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Nazwisko)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Nazwisko)
+        </dd>
+    </dl>
+	<h5></h5>
+    <form asp-action="Delete" class="button-link">
+       
+        <input type="hidden" asp-for="IdPracownika" />
+        <input type="submit" value="Usuń" class="btn btn-danger" /> 
+        <h5></h5>
+        <a asp-action="Index" class="button-link">Powrót</a>
+    </form>
+</div>

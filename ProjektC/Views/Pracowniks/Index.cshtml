@@ -1,0 +1,48 @@
+﻿@model IEnumerable<ProjektC.Models.Pracownik>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Pracownicy</h1>
+
+<p>
+    <a asp-action="Create" class="button-link">Stwórz nowego pracownika</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Id pracownika
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Imie)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Nazwisko)
+            </th>
+            
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IdPracownika)
+                </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Imie)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nazwisko)
+            </td>
+            <td>
+                    <a asp-action="Edit" asp-route-id="@item.IdPracownika" class="button-link">Edytuj</a>
+                    <a asp-action="Details" asp-route-id="@item.IdPracownika" class="button-link">Szczegóły</a> 
+                    <a asp-action="Delete" asp-route-id="@item.IdPracownika" class="button-link">Usuń</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
